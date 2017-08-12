@@ -9,12 +9,13 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap class="mt-2">
-      <v-flex xs12>
-          <v-carousel>
+      <v-flex xs10 offset-xs1 sm8 offset-sm2>
+          <v-carousel style="cursor: pointer;">
             <v-carousel-item 
               v-for="meetup in meetups" 
               v-bind:src="meetup.imageUrl" 
-              :key="meetup.id">
+              :key="meetup.id"
+              @click="onLoadMeetup(meetup.id)">
             <div class="title">
               {{ meetup.title }}
             </div>
@@ -38,6 +39,11 @@ export default {
         { imageUrl: 'https://i.ytimg.com/vi/KipbyxoMrCw/maxresdefault.jpg', id: 'hahaha123', title: 'Meetup with Barbatos' },
         { imageUrl: 'https://i.ytimg.com/vi/NMIwFi9oXr4/maxresdefault.jpg', id: 'hahaha1234', title: 'Meetup with Zenden' }
       ]
+    }
+  },
+  methods: {
+    onLoadMeetup (id) {
+      this.$router.push('/meetups/' + id)
     }
   }
 }
