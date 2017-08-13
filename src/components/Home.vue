@@ -33,12 +33,9 @@
 
 <script>
 export default {
-  data () {
-    return {
-      meetups: [
-        { imageUrl: 'https://i.ytimg.com/vi/KipbyxoMrCw/maxresdefault.jpg', id: 'hahaha123', title: 'Meetup with Barbatos' },
-        { imageUrl: 'https://i.ytimg.com/vi/NMIwFi9oXr4/maxresdefault.jpg', id: 'hahaha1234', title: 'Meetup with Zenden' }
-      ]
+  computed: {
+    meetups () {
+      return this.$store.getters.featuedMeetups
     }
   },
   methods: {
